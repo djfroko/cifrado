@@ -11,6 +11,7 @@ public class Cifrado {
     private String palabra;
     private int codigo = 0;
     private int selector = 0;
+    private char letra;
 
     public void iniciarApp() {
 
@@ -29,9 +30,11 @@ public class Cifrado {
 
         System.out.print("Escribe la palabra que quieras codificar :");
         palabra = sc.next();
+        palabra = palabra.toUpperCase();
         do {
             System.out.println("introduce el codigo (del 2 al 25)");
             codigo = sc.nextInt();
+
         } while (codigo < 1 || codigo > 25);
 
         do {
@@ -44,15 +47,13 @@ public class Cifrado {
     }
 
     private void cifrar() {
-        char letra = ' ';
-
         for (int i = 0; i < palabra.length(); i++) {
-            palabra.charAt(i) = letra;
-
+            letra = palabra.charAt(i);
+            System.out.println(letra);
+            //letra = letra + codigo;
+           // System.out.println(letra);
 
         }
-
-
     }
 
     private void descifrar() {
