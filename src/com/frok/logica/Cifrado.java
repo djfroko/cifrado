@@ -12,16 +12,20 @@ public class Cifrado {
     private int codigo = 0;
     private int selector = 0;
     private char letra;
+    private String palabraCifrada;
+    private String palabraFinal = "";
+
 
     public void iniciarApp() {
 
         introducirDatos();
 
         if (selector == 1) {
-            cifrar();
+            palabraFinal= cifrar();
         } else {
-            descifrar();
+            palabraFinal = descifrar();
         }
+
 
         mostrarResultado();
     }
@@ -32,7 +36,7 @@ public class Cifrado {
         palabra = sc.next();
         palabra = palabra.toUpperCase();
         do {
-            System.out.println("introduce el codigo (del 2 al 25)");
+            System.out.println("introduce el codigo (del 1 al 25)");
             codigo = sc.nextInt();
 
         } while (codigo < 1 || codigo > 25);
@@ -46,34 +50,37 @@ public class Cifrado {
 
     }
 
-    private void cifrar() {
+    private String cifrar() {
+        String palabraFinal = "";
 
         for (int i = 0; i < palabra.length(); i++) {
 
             letra = palabra.charAt(i);
             letra+= codigo;
-            System.out.println(letra);
+            palabraFinal+= letra;
 
         }
+        return palabraFinal;
     }
 
-    private void descifrar() {
-
+    private String descifrar() {
+        String palabraFinal = "";
         for (int i = 0; i < palabra.length(); i++) {
 
             letra = palabra.charAt(i);
             letra-= codigo;
-            System.out.println(letra);
+            palabraFinal += letra;
         }
 
         System.out.println();
 
+        return palabraFinal;
 
     }
 
     private void mostrarResultado() {
 
-        System.out.println("MUestro Resultado");
+        System.out.println(palabraFinal);
 
     }
 
