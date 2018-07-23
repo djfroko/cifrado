@@ -47,18 +47,26 @@ public class Cifrado {
     }
 
     private void cifrar() {
+
         for (int i = 0; i < palabra.length(); i++) {
+
             letra = palabra.charAt(i);
+            letra+= codigo;
             System.out.println(letra);
-            //letra = letra + codigo;
-           // System.out.println(letra);
 
         }
     }
 
     private void descifrar() {
 
-        System.out.println("Descifro");
+        for (int i = 0; i < palabra.length(); i++) {
+
+            letra = palabra.charAt(i);
+            letra-= codigo;
+            System.out.println(letra);
+        }
+
+        System.out.println();
 
 
     }
